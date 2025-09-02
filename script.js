@@ -59,18 +59,28 @@ for (let i = 0; i < call.length; i++) {
 let copyDisplay = document.getElementById('copy-display');
 let copyBtn = document.getElementsByClassName('copy-btn');
 let copyCount = 0;
+let cardNum = document.getElementsByClassName('card-num');
 for (let i = 0; i < copyBtn.length; i++) {
   const element = copyBtn[i];
 
   element.addEventListener('click', function(){
     copyCount++;
     copyDisplay.innerText = copyCount;
+
+    const text = cardNum[i].innerText ;
+     navigator.clipboard.writeText(text);
+     alert("Copied: " + text);
+     console.log(text);
     
 
   })
 
   
 }
+
+//Copy text function
+
+
 
 
   
