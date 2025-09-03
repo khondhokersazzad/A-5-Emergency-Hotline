@@ -55,7 +55,7 @@ for (let i = 0; i < call.length; i++) {
 
 }
 
-//Function for copy button
+//Function for copy button + copy textt
 let copyDisplay = document.getElementById('copy-display');
 let copyBtn = document.getElementsByClassName('copy-btn');
 let copyCount = 0;
@@ -68,17 +68,16 @@ for (let i = 0; i < copyBtn.length; i++) {
     copyDisplay.innerText = copyCount;
 
     const text = cardNum[i].innerText ;
+    //Copy Text to clipboard
      navigator.clipboard.writeText(text);
      alert("Copied: " + text);
      console.log(text);
-    
-
   })
 
   
 }
 
-//Copy text function
+//Call History Card
 
 
 
