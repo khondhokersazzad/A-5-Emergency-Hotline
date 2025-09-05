@@ -40,6 +40,8 @@ for (let i = 0; i < call.length; i++) {
  
   let cardNum = document.getElementsByClassName('card-num');
   let cardTitle= document.getElementsByClassName('card-title');
+
+  let numHistoryContainer = document.getElementById('num-history-container');
   
   element.addEventListener('click',function() {
 
@@ -47,11 +49,39 @@ for (let i = 0; i < call.length; i++) {
       coinBalance -= 20;
       alert('📞 calling  ' + cardTitle[i].innerText + " " + cardNum[i].innerText);
       coinDisplay.innerText = coinBalance;
+
+      const now = new Date().toLocaleTimeString();
+      
+
+      let newNumHistory = document.createElement('div');
+      //newNumHistory.innerText = cardTitle[i].innerText;
+      //numHistoryContainer.appendChild(newNumHistory);
+      //console.log(newNumHistory);
+
+      newNumHistory.innerHTML = `
+      <div class="flex justify-between items-start gap-5 bg-gray-100 p-3 my-5 rounded-4">
+        <div class="">
+            <h2 class="inter text-[18px] font-semibold">${cardTitle[i].innerText}</h2>
+            <h3 class="inter text-[18px] font-normal">${cardNum[i].innerText}</h3>
+        </div>
+
+        <div>
+            <h2 class="text-[18px]  font-normal">${now}</h2>
+            
+        </div>
+      </div>
+
+      `;
+
+      numHistoryContainer.appendChild(newNumHistory);
     }
     else{
       alert("❌ You don't have enough balance to make call");
     }
   })
+
+  
+
 
 }
 
